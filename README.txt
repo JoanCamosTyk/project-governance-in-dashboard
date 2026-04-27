@@ -7,6 +7,7 @@ We are on the discovery / refinement phase
 - [Project Brief](01-context/project-brief.md)
 - [Customer Interviews](02-discovery/Interviews.md) 
 - [Epics & Features](03-delivery/Epics.md)
+<<<<<<< HEAD
 
 ## This Week's Focus
 
@@ -27,3 +28,5 @@ We are on the discovery / refinement phase
 - Real ruleset templates needed — current OWASP + Recommended are placeholder examples; validate with customers
 - Should customers be able to opt-in to blocking on non-compliance, or stay warn-only?
 - Northwestern Mutual & Barclays asked for read-only shareable dashboard snapshots for federated teams — in or out of v1?
+=======
+>>>>>>> a5da9556da28622821b7d1cf8ec98ac2cfc8fbfd
