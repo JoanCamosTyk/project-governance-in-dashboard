@@ -502,11 +502,10 @@ We have that visual pressure of “Non-Compliant” while you are designing your
 - Block: This could perhaps be optional, but maybe some customers would like this functionality
 - Overlays/Partials: ruleset tells you what is wrong with your API Def, you can apply an overlay instantly over it to fix the problems.
 
-For Release 1: The idea is to have 2 flows, the customers can either have a message warning them if the APIs is non-compliant when hitting save, or not. 
+For Release 1: Two flows, controlled by a per-ruleset "Deployment Warning" toggle (OFF by default).
 
-
-- Old Flow (current flow) (Flow 1): Create API → Save → Live
-- New Flow (Flow 2): Create API → Design State → Governance Check → Optional Approval → Deploy
+- Toggle OFF (default): Create API → Save → Live. The ruleset still evaluates the API and shows it as "non-compliant" in the dashboard, but there is no popup, warning, or gate at deploy time.
+- Toggle ON: Create API → Save → ruleset runs → if non-compliant, a warning appears with two options: "Deploy Anyway" (proceeds to Live) or "Go Back" (returns to edit). It never hard-blocks; the user can always choose to deploy.
 
 Backward compatibility
 Existing APIs in Prod will see changes if you apply a ruleset to an API Category, it might take some time, but it will not block them, they will just show as non compliant
@@ -615,7 +614,7 @@ What This Means for Users
 
 
 
-“Deployment Warning” configured per Ruleset to turn it on/off Governance Dashboard – Figma
+“Deployment Warning” configured per Ruleset (OFF by default). When OFF, non-compliant APIs deploy silently and are flagged “non-compliant” in the dashboard only. When ON, hitting Save on a non-compliant API shows a warning popup with “Deploy Anyway” / “Go Back” — still never blocks. See Governance Dashboard – Figma
 
 
 
