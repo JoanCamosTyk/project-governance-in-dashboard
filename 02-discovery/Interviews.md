@@ -67,3 +67,6 @@ This can be a different flow from rulesets, maybe a new page under gov report wi
 Customers (NorthWestern Mutual & Barclays) would like RBAC to be expanded. A read-only shared link of the dashboard for Federated teams. Something like a snapshot you can share.
 
 Region O’s special interest is in security.
+
+### Further Ideas
+Customers (NorthWestern Mutual & Barclays) would like RBAC to be expanded. A read-only shared link of the dashboard for Federated teams. Something like a snapshot you can share.

@@ -500,7 +500,7 @@ There are 3 ways to enforce this:
 - Suggestion: Governance should not feel like a Gate; it should feel more like Helpful Feedback. We can’t block users.
 We have that visual pressure of “Non-Compliant” while you are designing your API, and a Warning if you want to deploy, “This API does not fully meet the compliance requirements”. Governance Dashboard – Figma
 - Block: This could perhaps be optional, but maybe some customers would like this functionality
-- Overlays/Partials: ruleset tells you what is wrong with your API Def, you can apply an overlay instantly over it to fix the problems.
+- Overlays/Partials: NOT YET DEFINED. The idea (ruleset tells you what is wrong with your API Def, you apply an overlay instantly to fix it) was raised in early discovery but has no design, scope, or commitment. Not in v1 scope.
 
 For Release 1: Two flows, controlled by a per-ruleset "Deployment Warning" toggle (OFF by default).
 
@@ -546,29 +546,21 @@ When reviewing the compliance status of a ruleset applied to an API, two dimensi
 
 
 
-#### Violations vs Warnings
+#### Severity Model (Error / Warn / Info)
 
-Violations
+We dropped the "Violations vs Warnings" model. v1 uses Severity only, with three levels:
 
-A violation occurs when a specific rule in a ruleset is not met.
+**Error** — makes the API non-compliant. A ruleset is non-compliant when it has at least one rule failing at Error severity. Errors represent critical issues that must be fixed to maintain security, operational integrity, or regulatory compliance.
 
-Violations make the ruleset non-compliant. (You can deploy anyway; we never block deployments). A ruleset is non-compliant when it has an error. A violation is an error.
+Example: An API allows unauthenticated users to create orders → Severity Error.
 
-They represent critical issues that must be fixed to maintain security, operational integrity, or regulatory compliance.
+**Warn** — does not affect compliance status. Advisory signals that indicate potential risks or best-practice improvements that teams should plan for.
 
-Example: An API allows unauthenticated users to create orders → Violation, High priority.
+Example: API traffic is sent over HTTP → Severity Warn.
 
-Warnings
+**Info** — does not affect compliance status. Informational notes for awareness.
 
-Warnings are advisory notifications that indicate potential risks or best practice improvements.
-
-They do not affect the compliance status of the ruleset.
-
-Warnings help teams plan improvements or anticipate problems before they become violations.
-
-Example: API traffic is sent over HTTP → Warning, Low priority.
-
-Summary: Violations are “must-fix” issues, while warnings are “good-to-fix” suggestions.
+Summary: Error = must-fix and makes the API non-compliant. Warn / Info = advisory and do not change compliance status. We never block deployments regardless of severity (see Deployment Warning).
 
 
 
